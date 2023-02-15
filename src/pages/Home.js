@@ -128,7 +128,7 @@ Vous pourrez profiter d'une cuisine entièrement équipée, de chambres conforta
 N'hésitez pas à nous contacter pour plus d'informations et pour organiser une visite. Nous sommes certains que vous tomberez sous le charme de notre maison et de son environnement exceptionnel.
 </p>
 </div>
-<div style={{width:"50%"}}>
+<div className="datePicker">
   <MyDatePicker data={updateDate} blocked={blockedDates} className="MyDatePicker"/>
 </div>
 

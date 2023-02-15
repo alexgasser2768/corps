@@ -344,6 +344,15 @@
     width: auto;
     margin: 10px;
   }
+
+  .description{
+    width: auto;
+  }
+
+  .datePicker{
+    width: auto;
+  }
+
   .MuiOutlinedInput-notchedOutline{
     margin-top:5px !important;
     margin-bottom:5px !important
