@@ -189,14 +189,23 @@ const Admin = () => {
            })
     }
 
+
     const loginWithEmailAndPassword = async (mail, psw) =>{
          try {
-            await signInWithEmailAndPassword(auth, mail, psw)
-            toast.success("Authentification réussi", {
-                position: toast.POSITION.BOTTOM_CENTER,
-                autoClose:2000
-               })
+            await signInWithEmailAndPassword(auth, mail, psw).then(
+                ()=>{
+                    setUsername("")
+                    setPassword("")
+                    toast.success("Authentification réussi", {
+                        position: toast.POSITION.BOTTOM_CENTER,
+                        autoClose:2000
+                       })
+                }
+            )
+
          } catch (error){
+            setUsername("")
+            setPassword("")
             toast.error("Email ou mot de passe incorrect", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 autoClose:2000
@@ -207,6 +216,8 @@ const Admin = () => {
 
     const logOut = () => {
         auth.signOut()
+        setUsername("")
+        setPassword("")
         toast.success("Déconnexion réussi", {
             position: toast.POSITION.BOTTOM_CENTER,
             autoClose:2000
@@ -351,8 +362,11 @@ const Admin = () => {
                             </p>
 
                             <p className="text-1xl text-left font-medium">
-                                Email : {post.email}
-                            </p> 
+                            Email : <a href={`mailto:${post.email}`} className="text-1xl text-left font-medium">
+                                {post.email}
+                            </a> 
+                            </p>
+                            
                             <p className="text-1xl text-left font-medium">
                                 Tel : {post.tel}
                             </p>  
